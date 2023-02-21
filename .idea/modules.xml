@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/autumnforest-boot.iml" filepath="$PROJECT_DIR$/.idea/autumnforest-boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autumnfoest-boot-commons/autumnforest-boot-commons.iml" filepath="$PROJECT_DIR$/autumnfoest-boot-commons/autumnforest-boot-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autumnfoest-boot-parent/autumnforest-boot-parent.iml" filepath="$PROJECT_DIR$/autumnfoest-boot-parent/autumnforest-boot-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autumnfoest-boot-result/autumnforest-boot-result.iml" filepath="$PROJECT_DIR$/autumnfoest-boot-result/autumnforest-boot-result.iml" />
+    </modules>
+  </component>
+</project>
