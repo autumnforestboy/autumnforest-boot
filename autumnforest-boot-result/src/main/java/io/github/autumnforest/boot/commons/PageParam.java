@@ -7,11 +7,11 @@ public class PageParam<T> {
     /**
      * 每页数据条数
      */
-    private Integer itemNumPerPage;
+    private Integer countPerPage;
     /**
      *  查询页码，从1开始
      */
-    private Integer currentPageNum;
+    private Integer currentPage;
     /**
      * 查询参数
      */

@@ -9,14 +9,19 @@ public class PageResult<T> {
     /**
      * 当前页码
      */
-    private Integer currentPageNum;
+    private Integer currentPage;
     /**
      * 总页码
      */
-    private Integer totalPageNum;
+    private Integer totalPage;
+    /**
+     * 符合条件总数据条数
+     */
+    private Integer totalCount;
     /**
      * 当前页码数据
      */
     private List<T> items;
+
 }
 
