@@ -5,11 +5,11 @@
     <parent>
         <groupId>io.github.autumnforestboy</groupId>
         <artifactId>autumnforest-boot-parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <artifactId>autumnforest-boot-commons</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>commons</name>
     <description>commons</description>
     <dependencies>
@@ -18,9 +18,39 @@
             <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.github.autumnforestboy</groupId>
             <artifactId>autumnforest-boot-result</artifactId>
             <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.autumnforestboy</groupId>
+            <artifactId>autumnforest-boot-utils</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjtools</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
         </dependency>
     </dependencies>
 </project>

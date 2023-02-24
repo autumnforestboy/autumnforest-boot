@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.qiulin.dev.task.mapper.TaskMapper">
+    <resultMap id="taskMap" type="top.qiulin.dev.task.model.Task">
+<!--        <result column="det_json" jdbcType="VARCHAR" property="detJson" />-->
+    </resultMap>
+
+    <insert id="insert">
+        insert into task (id,name,status,create_time,update_time)
+        value( #{id},#{name}, #{status}, #{createTime},#{updateTime} )
+    </insert>
+    <update id="updateDetJsonById">
+        update task set det_json=#{detJson} where id = #{id}
+    </update>
+    <select id="findAll" resultType="top.qiulin.dev.task.model.Task">
+        select * from task
+    </select>
+
+    <select id="count" resultType="int">
+        select count(1) from task
+    </select>
+    <select id="findById" resultType="top.qiulin.dev.task.model.Task">
+        select * from task where id=#{id}
+    </select>
+
+</mapper>
