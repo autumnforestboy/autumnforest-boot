@@ -12,7 +12,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
@@ -62,14 +61,17 @@ public class RequestLog {
     public void before(JoinPoint joinPoint, PostMapping mapping) throws JsonProcessingException {
         before(joinPoint);
     }
+
     @Before(value = "@annotation(mapping)")
     public void before(JoinPoint joinPoint, GetMapping mapping) throws JsonProcessingException {
         before(joinPoint);
     }
+
     @Before(value = "@annotation(mapping)")
     public void before(JoinPoint joinPoint, DeleteMapping mapping) throws JsonProcessingException {
         before(joinPoint);
     }
+
     @Before(value = "@annotation(mapping)")
     public void before(JoinPoint joinPoint, PutMapping mapping) throws JsonProcessingException {
         before(joinPoint);
@@ -109,10 +111,12 @@ public class RequestLog {
     public void afterReturning(JoinPoint joinPoint, PostMapping mapping, Object jsonResult) {
         after(jsonResult);
     }
+
     @AfterReturning(pointcut = "@annotation(mapping)", returning = "jsonResult")
     public void afterReturning(JoinPoint joinPoint, GetMapping mapping, Object jsonResult) {
         after(jsonResult);
     }
+
     @AfterReturning(pointcut = "@annotation(mapping)", returning = "jsonResult")
     public void afterReturning(JoinPoint joinPoint, DeleteMapping mapping, Object jsonResult) {
         after(jsonResult);
@@ -122,6 +126,7 @@ public class RequestLog {
     public void afterReturning(JoinPoint joinPoint, PutMapping mapping, Object jsonResult) {
         after(jsonResult);
     }
+
     @AfterReturning(pointcut = "@annotation(mapping)", returning = "jsonResult")
     public void afterReturning(JoinPoint joinPoint, RequestMapping mapping, Object jsonResult) {
         after(jsonResult);
@@ -138,18 +143,22 @@ public class RequestLog {
     public void afterThrowing(JoinPoint joinPoint, PostMapping mapping, Exception e) {
         after(null);
     }
+
     @AfterThrowing(value = "@annotation(mapping)", throwing = "e")
     public void afterThrowing(JoinPoint joinPoint, GetMapping mapping, Exception e) {
         after(null);
     }
+
     @AfterThrowing(value = "@annotation(mapping)", throwing = "e")
     public void afterThrowing(JoinPoint joinPoint, DeleteMapping mapping, Exception e) {
         after(null);
     }
+
     @AfterThrowing(value = "@annotation(mapping)", throwing = "e")
     public void afterThrowing(JoinPoint joinPoint, PutMapping mapping, Exception e) {
         after(null);
     }
+
     @AfterThrowing(value = "@annotation(mapping)", throwing = "e")
     public void afterThrowing(JoinPoint joinPoint, RequestMapping mapping, Exception e) {
         after(null);
