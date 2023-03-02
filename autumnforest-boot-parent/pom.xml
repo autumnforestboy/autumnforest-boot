@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.autumnforestboy</groupId>
     <artifactId>autumnforest-boot-parent</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <name>parent</name>
     <description>parent</description>
     <packaging>pom</packaging>
@@ -214,17 +214,6 @@
                         <testExclude>/src/test/**</testExclude>
                     </testExcludes>
                     <encoding>utf-8</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
         </plugins>

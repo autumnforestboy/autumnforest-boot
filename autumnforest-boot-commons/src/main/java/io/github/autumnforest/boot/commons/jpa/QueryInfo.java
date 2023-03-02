@@ -1,4 +1,4 @@
-package io.github.autumnforest.boot.commons.web;
+package io.github.autumnforest.boot.commons.jpa;
 
 
 import io.swagger.annotations.ApiModelProperty;

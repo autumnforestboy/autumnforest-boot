@@ -5,10 +5,10 @@
     <parent>
         <groupId>io.github.autumnforestboy</groupId>
         <artifactId>autumnforest-boot-parent</artifactId>
-        <version>1.0.8</version>
+        <version>1.0.9</version>
     </parent>
     <artifactId>autumnforest-boot-commons</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.9</version>
     <name>commons</name>
     <description>commons</description>
     <properties>
