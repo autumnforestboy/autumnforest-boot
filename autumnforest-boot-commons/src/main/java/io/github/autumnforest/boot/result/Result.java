@@ -1,4 +1,4 @@
-package io.github.autumnforest.boot.commons;
+package io.github.autumnforest.boot.result;
 
 import lombok.Data;
 

@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.github.autumnforest.boot.commons.service.RedisAutoConfig\
+  io.github.autumnforest.boot.commons.log.RequestLog

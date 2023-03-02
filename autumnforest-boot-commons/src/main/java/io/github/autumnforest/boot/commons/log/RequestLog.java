@@ -13,8 +13,10 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.core.PriorityOrdered;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -31,11 +33,16 @@ import java.util.Objects;
 @Configuration
 @EnableAspectJAutoProxy
 @Aspect
-@Component
+@ConditionalOnProperty(prefix="aspect.request.log", name = "enable", havingValue = "true", matchIfMissing = true)
 @Slf4j
-public class RequestLog {
+public class RequestLog  implements PriorityOrdered {
     @Autowired
     ObjectMapper objectMapper;
+
+    @Override
+    public int getOrder() {
+        return Integer.MAX_VALUE;
+    }
 
     @Slf4j
     @Data
