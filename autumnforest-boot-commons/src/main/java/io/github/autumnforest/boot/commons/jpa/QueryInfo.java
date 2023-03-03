@@ -24,7 +24,7 @@ public class QueryInfo<T> {
     @ApiModelProperty(value = "选填, 进行模糊查询的字段")
     private List<String> fuzzy;
     @ApiModelProperty(value = "查询条件，会忽略空值字段", required = true)
-    private T fields;
+    private T search;
 
     @AllArgsConstructor
     @NoArgsConstructor

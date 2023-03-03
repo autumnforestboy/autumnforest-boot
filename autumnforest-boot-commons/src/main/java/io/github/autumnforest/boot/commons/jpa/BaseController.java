@@ -1,15 +1,16 @@
 package io.github.autumnforest.boot.commons.jpa;
 
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.autumnforest.boot.result.PageParam;
 import io.github.autumnforest.boot.result.PageResult;
 import io.github.autumnforest.boot.result.Result;
 import io.github.autumnforest.boot.utils.DateUtil;
 import io.github.autumnforest.boot.utils.SqlUtil;
-import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -39,7 +40,8 @@ public abstract class BaseController<T> {
     protected TableSchema tableSchema = new TableSchema();
     private JpaRepository<T, Long> repository;
     private JpaSpecificationExecutor<T> jpaSpecificationExecutor;
-
+    @Autowired
+    ObjectMapper objectMapper;
 
     protected BaseController(JpaRepository<T, Long> repository, JpaSpecificationExecutor<T> jpaSpecificationExecutor) {
         this.jpaSpecificationExecutor = jpaSpecificationExecutor;
@@ -104,7 +106,7 @@ public abstract class BaseController<T> {
         return Result.ok(repository.findById(id).get());
     }
 
-    @GetMapping("save")
+    @PostMapping("save")
     public Result<T> save(@RequestBody @NotNull T entity) {
         repository.save(entity);
         return Result.ok(entity);
@@ -173,8 +175,16 @@ public abstract class BaseController<T> {
 
     private Specification<T> getSpecification(QueryInfo<T> param) throws Exception {
         logger.debug("param:{}", param);
+        Map<String, Object> values;
+        if (param.getSearch() == null) {
+            values = new HashMap<>();
+        } else {
+            String search = objectMapper.writeValueAsString(param.getSearch());
+            values = objectMapper.readValue(search, Map.class);
+            values.entrySet().removeIf(entry -> entry.getValue() == null);
+        }
+//        Map<String, Object> values = PropertyUtils.describe(param.getSearch());
 
-        Map<String, Object> values = PropertyUtils.describe(param.getFields());
         List<String> nullAble = param.getNullAble() == null ? new ArrayList<>() : param.getNullAble();
         List<String> fuzzy = param.getFuzzy() == null ? new ArrayList<>() : param.getFuzzy();
 
