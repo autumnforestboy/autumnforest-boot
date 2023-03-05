@@ -18,10 +18,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.*;
 import javax.persistence.criteria.Predicate;
@@ -112,8 +109,8 @@ public abstract class BaseController<T> {
         return Result.ok(entity);
     }
 
-    @GetMapping("deleteById")
-    public Result<Void> deleteById(@RequestBody @NotNull Long id) {
+    @DeleteMapping("deleteById")
+    public Result<Void> deleteById(@RequestParam @NotNull Long id) {
         repository.deleteById(id);
         return Result.ok(null);
     }
